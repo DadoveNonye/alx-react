@@ -1,4 +1,6 @@
 import React from "react";
+import logo from "./holberton-logo.jpg";
+import { getFullYear, getFooterCopy } from "./utils.js";
 
 const App = () => {
   return (
@@ -11,7 +13,9 @@ const App = () => {
         <p>Login to access the full dashboard</p>
       </div>
       <footer className="App-footer">
-        <p>Copyright 2020 - holberton School</p>
+        <p>
+          Copyright {getFullYear} - {getFooterCopy(isIndex)}
+        </p>
       </footer>
     </>
   );
