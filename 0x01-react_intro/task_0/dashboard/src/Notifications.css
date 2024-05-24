@@ -1,0 +1,25 @@
+.Notifications {
+  border: 3px dotted red;
+  padding: 2px;
+}
+
+.NotificationList li {
+  margin-bottom: 0.5rem;
+}
+
+.NotificationList li[data-priority="default"] {
+  color: blue;
+}
+
+.NotificationList li[data-priority="urgent"] {
+  color: red;
+}
+
+.dangerHtml {
+  color: rgb(182, 11, 11);
+}
+.closeicon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}

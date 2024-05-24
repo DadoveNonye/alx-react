@@ -1,0 +1,40 @@
+.App-header {
+  background-color: white;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header h1 {
+  color: rgb(192, 70, 70);
+}
+
+.App-footer {
+  background-color: white;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid rgb(192, 70, 70);
+}
+
+.App-body form {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  gap: 5px;
+}
