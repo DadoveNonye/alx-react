@@ -1,0 +1,14 @@
+.Notifications {
+  border: 3px dotted red;
+  padding: 2px;
+}
+
+.NotificationList li {
+  margin-bottom: 0.5rem;
+}
+
+.closeicon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
