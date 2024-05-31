@@ -1,36 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class NotificationItem extends React.Component {
-  static defaultProps = {
-    type: "default",
-  };
-
-  static propTypes = {
-    type: PropTypes.string,
-    value: PropTypes.string,
-    html: PropTypes.shape({
-      __html: PropTypes.string.isRequired,
-    }),
-    id: PropTypes.number.isRequired,
-    markAsRead: PropTypes.func.isRequired,
-  };
-
-  markAsRead = () => {
-    const { id, markAsRead } = this.props;
+const NotificationItem = ({
+  type = "default",
+  value,
+  html,
+  id,
+  markAsRead,
+}) => {
+  const handleClick = () => {
     markAsRead(id);
   };
 
-  render() {
-    const { type, value, html } = this.props;
+  return (
+    <li data-notification-type={type} onClick={handleClick}>
+      {value && <p>{value}</p>}
+      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+    </li>
+  );
+};
 
-    return (
-      <li data-notification-type={type} onClick={this.markAsRead}>
-        {value && <p>{value}</p>}
-        {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-      </li>
-    );
-  }
-}
+NotificationItem.propTypes = {
+  type: PropTypes.string,
+  value: PropTypes.string,
+  html: PropTypes.shape({
+    __html: PropTypes.string.isRequired,
+  }),
+  id: PropTypes.number.isRequired,
+  markAsRead: PropTypes.func.isRequired,
+};
 
 export default NotificationItem;
