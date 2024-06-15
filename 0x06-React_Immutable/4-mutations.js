@@ -11,4 +11,6 @@ export const map = Map({
 });
 
 // Create the second Immutable Map by modifying the initial Map
-export const map2 = map.set(2, "Benjamin").set(4, "Oliver");
+export const map2 = map.withMutations((mapItem) => {
+  mapItem.set(2, "Benjamin").set(4, "Oliver");
+});
