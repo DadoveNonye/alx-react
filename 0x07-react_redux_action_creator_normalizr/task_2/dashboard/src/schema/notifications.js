@@ -1,5 +1,4 @@
 import * as notificationsData from "../../../../notifications.json";
-
 import { schema, normalize } from "normalizr";
 
 const user = new schema.Entity("users");
@@ -20,11 +19,13 @@ const notification = new schema.Entity("notifications", {
 export default function getAllNotificationsByUser(userId) {
   const normalizedData = normalize(notificationsData.default, [notification]);
 
-  const notificationsByUser = normalizedData.result
-    .filter((id) => {
-      return normalizedData.entities.notifications[id].author === userId;
-    })
-    .map((id) => normalizedData.entities.notifications[id].context);
+  const notificationsByUser = normalizedData.result.reduce((acc, id) => {
+    const notification = normalizedData.entities.notifications[id];
+    if (notification.author === userId) {
+      acc.push(notification.context);
+    }
+    return acc;
+  }, []);
 
   return notificationsByUser;
 }
