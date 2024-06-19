@@ -1,3 +1,4 @@
+import { bindActionCreators } from "redux";
 import { SELECT_COURSE, UNSELECT_COURSE } from "./courseActionTypes";
 
 export function selectCourse(index) {
@@ -13,3 +14,8 @@ export function unselectCourse(index) {
     payload: index,
   };
 }
+
+export const boundActionCreators = (dispatch) => ({
+  selectCourse: bindActionCreators(selectCourse, dispatch),
+  unselectCourse: bindActionCreators(unselectCourse, dispatch),
+});

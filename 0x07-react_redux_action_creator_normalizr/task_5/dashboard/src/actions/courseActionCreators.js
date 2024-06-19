@@ -1,3 +1,5 @@
+import { SELECT_COURSE, UNSELECT_COURSE } from "./courseActionTypes";
+
 export function selectCourse(index) {
   return {
     type: SELECT_COURSE,
