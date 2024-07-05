@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
 import { StyleSheet, css } from "aphrodite";
 import { user, logOut, AppContext } from "./AppContext";
+import { connect } from "react-redux";
 
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
@@ -137,5 +138,10 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
 });
-
-export default App;
+export const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.get("isUserLoggedIn"),
+  };
+};
+export default connect(mapStateToProps)(App);
+// export default App;
